@@ -1,6 +1,6 @@
 {
-  "name": "persian-currency-converter",
-  "version": "1.0.1",
+  "name": "@behzadsoleimani/persian-currency-converter",
+  "version": "1.0.3",
   "description": "convert persian numbers and currency",
   "keywords": [
     "React",
