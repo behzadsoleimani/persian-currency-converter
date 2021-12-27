@@ -4,16 +4,16 @@ A Library that Makes You Able to Convert any Number to Persian Word. This Librar
 With npm
 use
 ```
-npm i @behzadsoleimani/persian-currency-converter
+npm i persian-currency-converter
 ```
 or
 ```
-yarn add @behzadsoleimani/persian-currency-converter
+yarn add persian-currency-converter
 ```
 then use:
 
 ```
-import * as Converter from "@behzadsoleimani/persian-currency-converter"
+import * as Converter from "persian-currency-converter"
 ```
 
 Functions

@@ -1,6 +1,6 @@
 {
-  "name": "@behzadsoleimani/persian-currency-converter",
-  "version": "1.0.5",
+  "name": "persian-currency-converter",
+  "version": "1.0.7",
   "description": "convert persian numbers and currency",
   "keywords": [
     "React",
@@ -19,7 +19,7 @@
     "build"
   ],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.com"
   },
   "repository": {
     "type": "git",
