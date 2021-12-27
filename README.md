@@ -19,19 +19,28 @@ import * as Converter from "persian-currency-converter"
 Functions
 To Use This Library You Can Call All of it's Functions using Converter.functionName();
 ```
-Converter.convertToPersianNum(number);
-// Input: a number as int or string
+Converter.convertToPersianWord(number);
+// Input: a number as int or string (Optional) (number should be in english)
+// Output: Converted Number to it's Word (string)
 ```
-
-
-Output: Converted Number to it's Word (string)
 
 Example:
 ```
-Converter.convertToPersianNum(987); // نهصد و هشتاد و هفت
-Converter.convertToPersianNum(-3214); //منفی سه هزار و دویست و چهارده
-Converter.convertToPersianNum(5648789778); 
+Converter.convertToPersianWord(987); // نهصد و هشتاد و هفت
+Converter.convertToPersianWord(-3214); //منفی سه هزار و دویست و چهارده
+Converter.convertToPersianWord(5648789778); 
 // پنج میلیارد و ششصد و چهل و هشت میلیون و هفتصد و هشتاد و نه هزار و هفتصد و هفتاد و هشت
 ```
 
-Input: a number as int or string (Optional) (number should be in english)
+
+Converter.threeDigitSeparator(number);
+// Input: a number as int or string (Optional) (number should be in english)
+// Output: Put thousandSeperator (string)
+```
+
+Example:
+```
+Converter.threeDigitSeparator(987); // 987
+Converter.threeDigitSeparator(3214); //3,214
+Converter.threeDigitSeparator(5648789778); // 5,648,789,778
+```

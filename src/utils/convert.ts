@@ -1,4 +1,146 @@
-export const convertToPersianNum = (num: number) => {
+export const threeDigitSeparator = (value: any) => {
+    try {
+        if (!value) {
+            return "";
+        }
+
+        const isValueTypeSuitable = typeof value === "number" || typeof value === "string";
+        if (!isValueTypeSuitable) {
+            return "";
+        }
+
+        // Convert the `value` to string
+        value += "";
+
+        return value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        // return value.toLocaleString('en')
+    }
+    catch (e) {
+        return "";
+    }
+}
+
+
+export const convertToEnglishWord = (num: any, customJoinCharacter: any) => {
+    const strNum = num.toString();
+    let end;
+
+    const and = customJoinCharacter || "and";
+
+    /* Is number zero? */
+    if (parseInt(strNum, 0) === 0) {
+        return "zero";
+    }
+
+    /* Array of units as words */
+    const units = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+
+    /* Array of tens as words */
+    const tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+
+    /* Array of scales as words */
+    const scales = ["", "thousand", "million", "billion", "trillion", "quadrillion", "quintillion", "sextillion", "septillion", "octillion", "nonillion", "decillion", "undecillion", "duodecillion", "tredecillion", "quatttuor-decillion", "quindecillion", "sexdecillion", "septen-decillion", "octodecillion", "novemdecillion", "vigintillion", "centillion"];
+
+    /* Split user arguemnt into 3 digit chunks from right to left */
+    let start = strNum.length;
+    const chunks = [];
+    while (start > 0) {
+        end = start;
+        chunks.push(strNum.slice((start = Math.max(0, start - 3)), end));
+    }
+
+    /* Check if function has enough scale words to be able to stringify the user argument */
+    const chunksLen = chunks.length;
+    if (chunksLen > scales.length) {
+        return "";
+    }
+
+    /* Stringify each integer in each chunk */
+    const words = [];
+    for (let i = 0; i < chunksLen; i += 1) {
+
+        const chunk = parseInt(chunks[i], 0);
+
+        if (chunk) {
+
+            /* Split chunk into array of individual integers */
+            const ints = chunks[i].split("").reverse().map(parseFloat);
+
+            /* If tens integer is 1, i.e. 10, then add 10 to units integer */
+            if (ints[1] === 1) {
+                ints[0] += 10;
+            }
+
+            /* Add scale word if chunk is not zero and array item exists */
+            let word = scales[i];
+            if (word) {
+                words.push(word);
+            }
+
+            /* Add unit word if array item exists */
+            word = units[ints[0]];
+            if (word) {
+                words.push(word);
+            }
+
+            /* Add tens word if array item exists */
+            word = tens[ints[1]];
+            if (word) {
+                words.push(word);
+            }
+
+            /* Add 'and' string after units or tens integer if: */
+            if (ints[0] || ints[1]) {
+
+                /* Chunk has a hundreds integer or chunk is the first of multiple chunks */
+                if (ints[2] || (!i && chunksLen)) {
+                    words.push(and);
+                }
+
+            }
+
+            /* Add hundreds word if array item exists */
+            word = units[ints[2]];
+            if (word) {
+                words.push(word + " hundred");
+            }
+
+        }
+
+    }
+
+    return words.reverse().join(" ");
+}
+
+
+export const convertToPersianNum = (enDigit: any) => {
+    try {
+        if (!enDigit && !enDigit.toString().length) {
+            return "";
+        }
+
+        const enDigitString = typeof enDigit === "number" ? enDigit.toString() : enDigit;
+
+        let newValue = "";
+        for (let i = 0; i < enDigitString.length; i += 1) {
+            const ch = enDigitString.charCodeAt(i);
+            if (ch >= 48 && ch <= 57) {
+                // european digit range
+                const newChar = ch + 1728;
+                newValue += String.fromCharCode(newChar);
+            }
+            else {
+                newValue += String.fromCharCode(ch);
+            }
+        }
+        return newValue;
+    } catch (e) {
+        return "";
+    }
+};
+
+
+export const convertToPersianWord = (num: number) => {
     try {
         let numStr = num.toString();
 
