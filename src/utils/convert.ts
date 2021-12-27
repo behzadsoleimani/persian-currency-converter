@@ -21,7 +21,7 @@ export const threeDigitSeparator = (value: any) => {
 }
 
 
-export const convertToEnglishWord = (num: any, customJoinCharacter: any) => {
+export const convertToEnglishWord = (num: any, customJoinCharacter?: any) => {
     const strNum = num.toString();
     let end;
 
