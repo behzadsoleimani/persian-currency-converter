@@ -1,0 +1,40 @@
+{
+  "name": "persian-currency-converter",
+  "version": "1.0.1",
+  "description": "convert persian numbers and currency",
+  "keywords": [
+    "React",
+    "Currency",
+    "Persian"
+  ],
+  "author": "behzad soleimani <behzadsoleimani97@gmail.com>",
+  "homepage": "https://behzadsoleimani.ir",
+  "license": "SEE LICENSE IN License.lic",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "directories": {
+    "build": "build"
+  },
+  "files": [
+    "build"
+  ],
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/behzadsoleimani/persian-currency-converter.git"
+  },
+  "scripts": {
+    "prepare":"npm run build",
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint . --ignore-path ../../.eslintignore --ext ts --ext tsx --ext js --ext jsx",
+    "lint:fix": "eslint --fix . --ignore-path ../../.eslintignore --ext ts --ext tsx --ext js --ext jsx"
+  },
+  "bugs": {
+    "url": "https://github.com/behzadsoleimani/persian-currency-converter/issues"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  }
+}

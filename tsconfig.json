@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "build",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "es5",
+      "es2015"
+    ],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "declaration": true,
+    "declarationMap": true,
+    "skipLibCheck": true,
+    "target": "es5",
+    "module": "commonjs",
+    "jsx": "react"
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/node_modules/**",
+    "node_modules",
+    "build"
+  ]
+}
